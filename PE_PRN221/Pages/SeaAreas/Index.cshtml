@@ -1,0 +1,76 @@
+﻿@page
+@model PE_PRN221.Pages.SeaAreas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SeaArea[0].SeaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeaArea[0].Treasure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeaArea[0].Probability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeaArea[0].Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeaArea[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeaArea[0].ExpiryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeaArea[0].Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SeaArea)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeaName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Treasure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Probability)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpiryDate)
+                </td>
+                <td>
+                    @if (item.Country is not null)
+                    {
+                        @item.Country.Name
+                    } 
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.SeaId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.SeaId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.SeaId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

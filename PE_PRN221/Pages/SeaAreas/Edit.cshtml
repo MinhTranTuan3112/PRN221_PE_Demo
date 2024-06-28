@@ -1,0 +1,65 @@
+﻿@page
+@model PE_PRN221.Pages.SeaAreas.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SeaArea</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SeaArea.SeaId" />
+            <div class="form-group">
+                <label asp-for="SeaArea.SeaName" class="control-label"></label>
+                <input asp-for="SeaArea.SeaName" class="form-control" />
+                <span asp-validation-for="SeaArea.SeaName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeaArea.Treasure" class="control-label"></label>
+                <input asp-for="SeaArea.Treasure" class="form-control" />
+                <span asp-validation-for="SeaArea.Treasure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeaArea.Probability" class="control-label"></label>
+                <input asp-for="SeaArea.Probability" class="form-control" />
+                <span asp-validation-for="SeaArea.Probability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeaArea.Fee" class="control-label"></label>
+                <input asp-for="SeaArea.Fee" class="form-control" />
+                <span asp-validation-for="SeaArea.Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeaArea.StartDate" class="control-label"></label>
+                <input asp-for="SeaArea.StartDate" class="form-control" />
+                <span asp-validation-for="SeaArea.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeaArea.ExpiryDate" class="control-label"></label>
+                <input asp-for="SeaArea.ExpiryDate" class="form-control" />
+                <span asp-validation-for="SeaArea.ExpiryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeaArea.CountryId" class="control-label"></label>
+                <select asp-for="SeaArea.CountryId" class="form-control" asp-items="ViewBag.CountryId"></select>
+                <span asp-validation-for="SeaArea.CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

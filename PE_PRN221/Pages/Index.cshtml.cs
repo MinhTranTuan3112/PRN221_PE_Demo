@@ -30,6 +30,9 @@ namespace PE_PRN221.Pages
             if (account is not null)
             {
                 Console.WriteLine($"Username: {Username}, Password = {Password}");
+                HttpContext.Session.SetString("username", Username);
+                HttpContext.Session.SetString("roleId", account.RoleId.ToString());
+                //Response.Redirect("SeaAreas/Create");
             }
             else
             {
